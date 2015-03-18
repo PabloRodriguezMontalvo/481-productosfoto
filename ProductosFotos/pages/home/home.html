@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/home/home.css" rel="stylesheet" />
+    <script src="/pages/home/home.js"></script>
+</head>
+<body>
+    <div id="PlantillaProductos" data-win-control="WinJS.Binding.Template">
+        <div>
+            <img data-win-bind="alt:nombre; src:foto;" />
+            <h4 data-win-bind="innerText: nombre;"></h4>
+            <h6 data-win-bind="innerText: precio;"></h6> €
+        </div>
+    </div>
+
+<!-- The content that will be loaded and displayed. -->
+<div class="fragment homepage">
+    <header aria-label="Header content" role="banner">
+        <button data-win-control="WinJS.UI.BackButton"></button>
+        <h1 class="titlearea win-type-ellipsis">
+            
+        </h1>
+    </header>
+    <section aria-label="Main content" role="main">
+        <div data-win-control="WinJS.UI.ListView"
+             data-win-options="{itemDataSource:Datos.Productos.dataSource,
+             itemTemplate: select('#PlantillaProductos'),
+             layout:{type: WinJS.UI.CellSpanningLayout}}"></div>
+        <div>
+            <input type="text" id="txtNom" placeholder="Nombre"/>
+            <input type="number" id="txtPre" placeholder="Precio"/>
+            <br/>
+            <img style="max-width: 100px;" id="imgPro"/>
+            <input type="button" id="btnImg" value="Seleccionar"/>
+            <br/>
+            <input type="button" id="btnGuardar" value="Guardar"/>
+         </div>
+
+    </section>
+</div>
+</body>
+</html>
